@@ -1,6 +1,6 @@
 package collections;
 
-public interface MyList {
+public interface MyList extends Iterable<Object> {
 	
 	void add(Object e);
 	void clear();

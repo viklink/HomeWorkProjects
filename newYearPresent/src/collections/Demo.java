@@ -1,6 +1,7 @@
 package collections;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -35,14 +36,45 @@ public class Demo {
 		System.out.println(myPrayer.contains("мне"));
 
 		System.out.println(myPrayer.containsAll(myPrayer));
-
+/*
 		myPrayer.clear();
 		if (myPrayer.size() == 0) {
 			System.out.println("The List is cleared");
 		} else {
 			System.out.println("Check your code");
 		}
+*/	
+		Iterator<String> iter = myPrayer.iterator();
+		while (iter.hasNext()) {
+			System.out.println(iter.next());
+		}
+		
+		for (String word : myPrayer) {
+			System.out.print(word + " ");
+		}
+		
+		DefaultMyList con = new DefaultMyList ();
+		Iterator<Object> it = con.iterator();
+		while (it.hasNext())
+			System.out.println(it.next());
+		
+		
+		ListIterator<String> listIterator = myPrayer.listIterator();
+        while (listIterator.hasNext()) {
+            String word = listIterator.next();
+            listIterator.set(word + " ");
+        }
+		
+		while (listIterator.hasPrevious()) {
+            System.out.print(listIterator.previous() + " ");
+        }
+		
+        listIterator.next();
+ 
+        listIterator.remove();
+        System.out.println("After remove(): " + myPrayer);
 
 	}
+	
 
 }
