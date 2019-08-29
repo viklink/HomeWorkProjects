@@ -4,19 +4,19 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class DefaultMyList implements MyList, ListIterable {
+public class DefaultMyList<E> implements MyList <E>, ListIterable {
 
 	private Object[] data;
 	private int size;
 	private static final int DEFAULT_CAPACITY = 6;
 
-	public DefaultMyList() {
+	public <E> DefaultMyList(E e) {
 		data = new Object[DEFAULT_CAPACITY];
 		size = 0;
 	}
 
 	@Override
-	public void add(Object e) {
+	public <E> void add(E e) {
 		if (size == data.length) {
 			int newSize = data.length * 2;
 			data = Arrays.copyOf(data, newSize);
@@ -84,7 +84,7 @@ public class DefaultMyList implements MyList, ListIterable {
 	}
 
 	@Override
-	public boolean containsAll(MyList c) {
+	public <E> boolean containsAll(MyList<E> c) {
 		boolean isAll = false;
 
 		for (int i = 0; i < data.length; i++) {

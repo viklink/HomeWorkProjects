@@ -1,13 +1,13 @@
 package collections;
 
-public interface MyList extends Iterable<Object> {
+public interface MyList<E> extends Iterable<Object> {
 	
-	void add(Object e);
+	<E> void add(E e);
 	void clear();
 	boolean remove(Object o); 
 	Object[] toArray(); 
 	int size(); 
 	boolean contains(Object o); 
-	boolean containsAll(MyList c);
+	<E>boolean containsAll(MyList<E> c);
 
 }
