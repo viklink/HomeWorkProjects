@@ -1,0 +1,8 @@
+SELECT u.name, COUNT(u.id) as tours FROM tours_users tu
+JOIN users u ON u.id = tu.user_id
+GROUP BY u.id
+HAVING(COUNT(u.id)>1);
+SELECT t.name as tour_name, u.name as user_name FROM tours_users tu
+RIGHT JOIN users u ON u.id = tu.user_id
+RIGHT JOIN tours t ON t.id = tu.tour_id
+WHERE u.name = 'Andrey';
